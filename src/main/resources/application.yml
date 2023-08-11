@@ -1,0 +1,20 @@
+server:
+  port: 9564
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cartorio
+    username: usercartorio2023
+    password: cartorio2023
+
+  jpa:
+    show: true
+    properties:
+      hibernate:
+        formar_sql: true
+    hibernate:
+      ddl-auto: update
+
+
+
+
