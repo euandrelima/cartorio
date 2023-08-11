@@ -1,5 +1,6 @@
 package br.com.escriba.andrelima.cartorio.domain.dtos;
 
+import br.com.escriba.andrelima.cartorio.domain.SituacaoCartorio;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,10 @@ public class SituacaoCartorioDTO implements Serializable {
 
     private String id;
     private String nome;
+
+    public SituacaoCartorioDTO(SituacaoCartorio obj){
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+    }
 
 }
