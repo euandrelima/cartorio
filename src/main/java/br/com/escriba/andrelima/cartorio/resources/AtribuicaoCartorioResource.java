@@ -44,6 +44,12 @@ public class AtribuicaoCartorioResource {
         return ResponseEntity.created(uri).build();
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<AtribuicaoCartorioDTO> update(@PathVariable String id, @RequestBody AtribuicaoCartorioDTO objDTO){
+        AtribuicaoCartorio obj = service.update(id, objDTO);
+        return ResponseEntity.ok().body(new AtribuicaoCartorioDTO(obj));
+    }
+
     private AtribuicaoCartorioDTO toAtribuicaoCartorioDTO(AtribuicaoCartorio atribuicaoCartorio){
         return modelMapper.map(atribuicaoCartorio, AtribuicaoCartorioDTO.class);
     }

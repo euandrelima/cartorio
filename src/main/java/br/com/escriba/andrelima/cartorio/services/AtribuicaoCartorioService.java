@@ -35,6 +35,14 @@ public class AtribuicaoCartorioService {
         return repository.findAll(pageable);
     }
 
+    public AtribuicaoCartorio update(String id, AtribuicaoCartorioDTO objDTO) {
+        objDTO.setId(id);
+        AtribuicaoCartorio oldObj = findById(id);
+        verificaNomeExistente(objDTO);
+        oldObj = new AtribuicaoCartorio(objDTO);
+        return repository.save(oldObj);
+    }
+
     private void verificaIdExistente(AtribuicaoCartorioDTO objDTO) {
         Optional<AtribuicaoCartorio> obj = repository.findById(objDTO.getId());
         if(obj.isPresent() && obj.get().getId() == objDTO.getId()) {
@@ -48,4 +56,5 @@ public class AtribuicaoCartorioService {
             throw  new DuplicateObjectException("Nome já informado no registro com código " + obj.get().getId());
         }
     }
+
 }
