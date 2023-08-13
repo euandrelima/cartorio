@@ -1,9 +1,7 @@
 package br.com.escriba.andrelima.cartorio.resources;
 
 import br.com.escriba.andrelima.cartorio.domain.AtribuicaoCartorio;
-import br.com.escriba.andrelima.cartorio.domain.SituacaoCartorio;
 import br.com.escriba.andrelima.cartorio.domain.dtos.AtribuicaoCartorioDTO;
-import br.com.escriba.andrelima.cartorio.domain.dtos.SituacaoCartorioDTO;
 import br.com.escriba.andrelima.cartorio.services.AtribuicaoCartorioService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
