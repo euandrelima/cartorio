@@ -24,8 +24,8 @@ public class Cartorio implements Serializable {
     private String nome;
     @Column(length = 250)
     private String observacao;
-    @OneToOne //(fetch = FetchType.LAZY)
-    @JoinColumn(name = "situacao_cartorio_id") //, unique = true)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "situacao_cartorio_id")
     private SituacaoCartorio situacaoCartorio;
     @OneToMany(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
     @Column(nullable = false)
