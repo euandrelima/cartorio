@@ -6,7 +6,6 @@ import br.com.escriba.andrelima.cartorio.services.AtribuicaoCartorioService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,8 +29,8 @@ public class AtribuicaoCartorioResource {
     }
 
     @GetMapping
-    public ResponseEntity<Page<AtribuicaoCartorio>> findAll(Pageable pageable) {
-        Page<AtribuicaoCartorio> list = service.findAll(pageable);
+    public ResponseEntity<Page<AtribuicaoCartorio>> findAll() {
+        Page<AtribuicaoCartorio> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 

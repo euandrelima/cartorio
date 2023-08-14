@@ -7,6 +7,7 @@ import br.com.escriba.andrelima.cartorio.services.execeptions.DuplicateObjectExc
 import br.com.escriba.andrelima.cartorio.services.execeptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,8 @@ public class SituacaoCartorioService {
         return repository.save(newObj);
     }
 
-    public Page<SituacaoCartorio> findAll(Pageable pageable) {
+    public Page<SituacaoCartorio> findAll() {
+        Pageable pageable = PageRequest.ofSize(10);
         return repository.findAll(pageable);
     }
 
