@@ -1,5 +1,6 @@
 package br.com.escriba.andrelima.cartorio.domain;
 
+import br.com.escriba.andrelima.cartorio.domain.dtos.CartorioDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,4 +31,13 @@ public class Cartorio implements Serializable {
     @OneToMany(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
     @Column(nullable = false)
     private List<AtribuicaoCartorio> atribuicoes;
+
+    public Cartorio(CartorioDTO obj){
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.observacao = obj.getObservacao();
+        this.situacaoCartorio = obj.getSituacaoCartorio();
+        this.atribuicoes = obj.getAtribuicoes();
+    }
+
 }

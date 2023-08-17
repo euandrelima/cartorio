@@ -1,6 +1,9 @@
 package br.com.escriba.andrelima.cartorio.services;
 
 import br.com.escriba.andrelima.cartorio.domain.Cartorio;
+import br.com.escriba.andrelima.cartorio.domain.SituacaoCartorio;
+import br.com.escriba.andrelima.cartorio.domain.dtos.CartorioDTO;
+import br.com.escriba.andrelima.cartorio.domain.dtos.SituacaoCartorioDTO;
 import br.com.escriba.andrelima.cartorio.repositories.CartorioRepository;
 import br.com.escriba.andrelima.cartorio.services.execeptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +25,16 @@ public class CartorioService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Cartório não encontrado! Código: " + id));
     }
 
+    public Cartorio create(CartorioDTO objDTO) {
+//        verificaIdExistente(objDTO);
+//        verificaNomeExistente(objDTO);
+        Cartorio newObj = new Cartorio(objDTO);
+        return repository.save(newObj);
+    }
+
     public Page<Cartorio> findAll() {
         Pageable pageable = PageRequest.ofSize(10);
         return repository.findAll(pageable);
     }
-
 
 }
