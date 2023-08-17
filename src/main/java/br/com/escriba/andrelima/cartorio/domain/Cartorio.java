@@ -1,6 +1,7 @@
 package br.com.escriba.andrelima.cartorio.domain;
 
 import br.com.escriba.andrelima.cartorio.domain.dtos.CartorioDTO;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,8 @@ public class Cartorio implements Serializable {
     @Column(length = 250)
     private String observacao;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "situacao_cartorio_id")
+    @JoinColumn(name = "situacao_cartorio_id", unique = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private SituacaoCartorio situacaoCartorio;
     @OneToMany(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
     @Column(nullable = false)
